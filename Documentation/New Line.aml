@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="61b096e8-a8ae-45bf-ad36-d2de12c2b8b0" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>Begins a new line of text</para>
+    </introduction>
+    <section>
+      <title>Example</title>
+      <content>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="NewLineExample" />
+            	</mediaLink>
+            </para>
+      </content>
+    </section>  
+  </developerConceptualDocument>
+</topic>

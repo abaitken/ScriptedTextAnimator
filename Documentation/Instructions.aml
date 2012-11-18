@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="094e395e-6c84-4e53-9813-e57615a74e4a" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>An instruction is a single action to be rendered in a chain of instructions to build the animated GIF.</para>
+    </introduction>
+    <relatedTopics>
+      <link xlink:href="68239e32-6ca8-4d6b-86de-1277480fd0a0"/>
+      <link xlink:href="24fe4bb9-4044-49f2-90a9-3efae0c15f8f"/>
+      <link xlink:href="8d1502a5-9f81-428d-989d-8552f74150a1"/>
+      <link xlink:href="37805fad-a7a9-4b43-92a1-b3826e866e4c"/>
+      <link xlink:href="61b096e8-a8ae-45bf-ad36-d2de12c2b8b0"/>
+      <link xlink:href="6df8c37a-da56-4b2a-824a-7ab570fe65cf"/>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

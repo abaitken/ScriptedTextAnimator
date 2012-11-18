@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="f2505190-0720-41eb-94f2-051a67eb8917" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>This topic will cover the various aspects of the user interface.</para>
+    </introduction>
+    
+    <section>
+      <content>
+      	<mediaLink>
+			<image placement="left" xlink:href="InterfaceRegions"/>
+		</mediaLink>
+      </content>
+      
+	<list class="bullet">
+	  <listItem><para>Preview Region; This is the region where the animation GIF will be rendered.</para></listItem>
+	  <listItem><para>Project Property Region; This is the region where you can view and change the properties for the current project. Such as fonts and other effects.</para></listItem>
+	  <listItem><para>Instruction Script Region; This region contents the script to render. Selecting an instruction will display its properties in the Selected Instruction Property Region.</para></listItem>
+	  <listItem><para>Selected Instruction Property Region; Allows you to view and change the properties for the currently selected instruction.</para></listItem>
+	</list>
+	
+	<para>The toolbar offers actions that can be performed against the current project. Including such actions as managing projects, adding instructions to the script, removing instructions and rendering.</para>
+	
+
+    </section> 
+  </developerConceptualDocument>
+</topic>

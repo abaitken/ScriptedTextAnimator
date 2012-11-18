@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="748e50e2-21d2-484e-ae0e-3247902831f0" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>This topic covers the steps required to render the script to generate an animated GIF.</para>
+    </introduction>
+    <procedure>
+      <title>Render Preview</title>
+      <steps class="ordered">
+        <step>
+          <content>
+            <para>Click the Render Preview button</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="RenderPreviewButtonHighlighted" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Wait for the render to complete</para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Results of the render will be displayed in the Preview region</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="RenderPreviewExample" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+      </steps>
+    </procedure>
+    <procedure>
+      <title>Render to Disk</title>
+      <steps class="ordered">
+      	<step>
+          <content>
+            <para>Click the Render to Disk button</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="RenderToDiskButtonHighlighted" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>The save file dialog will appear. Select a file location and file name and click the save button/</para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Wait for the render to complete</para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Results of the render will be displayed in the Preview region and the GIF will be written to Disk</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="RenderPreviewExample" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+      </steps>
+    </procedure>
+  </developerHowToDocument>
+</topic>

@@ -1,0 +1,32 @@
+Scripted GIF Builder Changelog
+==============================
+
+????
+- Fixed an issue where project schema version was never written to the projects
+- Fixed an issue where projects with newer schemas would be downgraded and data would be lost. You can no longer open projects with greater project schema versions than the current app can support.
+- Fixed an issue where the Exception Message Window would not display correctly
+
+v1.1.0.1202		29 September 2012
+- Added functionality to resize various interface regions
+- Added help documentation
+- When inserting instructions the newly inserted instruction is selected
+
+v1.1.0.1200		25 September 2012
+- Added new options for scanlines
+- Added recent files list
+- Fixed a issue where values were not updated unless the textbox looses focus
+
+v1.1.0.1192		01 September 2012
+- Created version check window
+- Created about window
+- Created website
+- Created installer
+- Improved look and feel
+
+v1.0.3.0		21 August 2012
+- Introduced more animation options
+- Introduced more settings for animation projects
+- Introduced value error reporting
+
+v1.0.0.0		15 August 2012
+- Created basic GIF Builder to render a text script as an animated typed GIF

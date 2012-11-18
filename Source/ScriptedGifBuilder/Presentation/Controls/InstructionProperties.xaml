@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="ScriptedGifBuilder.Presentation.Controls.InstructionProperties"
+             x:ClassModifier="internal"
+             x:Name="ThisControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ScriptedGifBuilder="clr-namespace:ScriptedGifBuilder" xmlns:Converters="clr-namespace:TemperedSoftware.Shared.Presentation.Converters;assembly=TemperedSoftware.Shared.Presentation" xmlns:Controls1="clr-namespace:ScriptedGifBuilder.Presentation.Controls" xmlns:Presentation="clr-namespace:ScriptedGifBuilder.Presentation">
+    <UserControl.Resources>
+
+
+        <ResourceDictionary>
+            <DataTemplate x:Key="UnknownProperty">
+                <TextBlock Text="ERROR: Unexpected property type" />
+            </DataTemplate>
+            <DataTemplate x:Key="StringProperty">
+                <TextBox Text="{Binding Value}" />
+            </DataTemplate>
+            <DataTemplate x:Key="ColorProperty">
+                <Controls1:ColorEditor Value="{Binding}" />
+            </DataTemplate>
+            <DataTemplate x:Key="IntegerProperty">
+                <Controls1:NumberEditor Value="{Binding}" />
+            </DataTemplate>
+            <DataTemplate x:Key="BooleanProperty">
+                <CheckBox IsChecked="{Binding Value}" />
+            </DataTemplate>
+            <DataTemplate x:Key="EnumerationProperty">
+                <Controls1:EnumerationEditor Value="{Binding}" />
+            </DataTemplate>
+            <DataTemplate x:Key="FlagsEnumerationProperty">
+                <Controls1:FlagsEnumerationEditor Value="{Binding}" />
+            </DataTemplate>
+            <DataTemplate x:Key="ComboEditorProperty">
+                <Controls1:ComboEditor Value="{Binding}" />
+            </DataTemplate>
+            <Presentation:PropertyTemplateSelector x:Key="PropertyTemplateSelector" 
+                                                        UnknownTemplate="{StaticResource UnknownProperty}"
+                                                        StringTemplate="{StaticResource StringProperty}"
+                                                        ColorTemplate="{StaticResource ColorProperty}"
+                                                        IntegerTemplate="{StaticResource IntegerProperty}"
+                                                        BooleanTemplate="{StaticResource BooleanProperty}"
+                                                        FlagsEnumerationTemplate="{StaticResource FlagsEnumerationProperty}"
+                                                        EnumerationTemplate="{StaticResource EnumerationProperty}"
+                                                        ComboEditorTemplate="{StaticResource ComboEditorProperty}" />
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <ListView ItemsSource="{Binding Properties}" DataContext="{Binding ElementName=ThisControl}">
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            </Style>
+        </ListView.ItemContainerStyle>
+        <ListView.View>
+            <GridView>
+                <GridView.ColumnHeaderContainerStyle>
+                    <Style TargetType="GridViewColumnHeader">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                    </Style>
+                </GridView.ColumnHeaderContainerStyle>
+                <GridView.Columns>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="150" />
+                    <GridViewColumn CellTemplateSelector="{StaticResource PropertyTemplateSelector}" Width="150" />
+                    <GridViewColumn Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Visibility="{Binding IsValid, Converter={StaticResource BooleanVisibilityConverter}, ConverterParameter=False}">
+                                    <Image Source="{StaticResource ValidationError}" Width="16" Height="16" ToolTip="{Binding ValidationMessage}" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView.Columns>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</UserControl>

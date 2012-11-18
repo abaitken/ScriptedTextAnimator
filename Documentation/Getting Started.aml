@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="230c5ba6-829c-4925-a42b-9334ca2508b8" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>To begin with get familiar with the <link xlink:href="f2505190-0720-41eb-94f2-051a67eb8917"/>, then follow the How To topics:</para>
+      
+		<list class="bullet">
+		  <listItem><para><link xlink:href="d2a8d4ee-320e-4487-b4aa-eafdb61fdcd5" /></para></listItem>
+		</list>
+
+    </introduction>
+  </developerConceptualDocument>
+</topic>

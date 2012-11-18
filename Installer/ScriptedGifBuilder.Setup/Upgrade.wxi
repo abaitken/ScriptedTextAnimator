@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+
+  <CustomActionRef Id="WixExitEarlyWithSuccess" />
+
+  <InstallExecuteSequence>
+    <RemoveExistingProducts After="InstallInitialize"/>
+  </InstallExecuteSequence>
+
+  <Upgrade Id="$(var.UpgradeCode)">
+    <UpgradeVersion Minimum="0.0.0.0" IncludeMinimum="no"
+                    Maximum="$(var.Version)" IncludeMaximum="no"
+                    ExcludeLanguages="no"
+                    IgnoreRemoveFailure="no"
+                    MigrateFeatures="yes"
+                    OnlyDetect="no"
+                    Property="PRODUCTUPGRADE" />
+
+    <UpgradeVersion Minimum="$(var.Version)" IncludeMinimum="yes"
+                    IncludeMaximum="no"
+                    IgnoreRemoveFailure="no"
+                    OnlyDetect="yes"
+                    Property="NEWERVERSIONDETECTED" />
+  </Upgrade>
+
+  <Condition Message="A later version of [ProductName] is already installed. Setup will now exit.">
+    <![CDATA[NOT NEWERVERSIONDETECTED OR Installed]]>
+  </Condition>
+  
+</Include>

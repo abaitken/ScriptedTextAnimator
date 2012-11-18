@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="24fe4bb9-4044-49f2-90a9-3efae0c15f8f" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>Creates a typing text effect.</para>
+    </introduction>
+    <section>
+      <title>Properties</title>
+      <content>
+      	<list class="bullet">
+		  <listItem><para>Delay; time (in milliseconds) between frames when drawing each character.</para></listItem>
+		  <listItem><para>Text; the text to draw.</para></listItem>
+		</list>
+      </content>
+    </section>  
+    <section>
+      <title>Example</title>
+      <content>
+      		<para>Example typing text effect</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="TypedTextExample" />
+            	</mediaLink>
+            </para>
+      </content>
+    </section>  
+  </developerConceptualDocument>
+</topic>

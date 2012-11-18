@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="8d1502a5-9f81-428d-989d-8552f74150a1" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>Draws the specified text</para>
+    </introduction>
+    <section>
+      <title>Properties</title>
+      <content>
+      	<list class="bullet">
+		  <listItem><para>Text; the text to draw.</para></listItem>
+		</list>
+      </content>
+    </section>  
+    <section>
+      <title>Example</title>
+      <content>
+      		<para>Example of static text</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="StaticTextExample" />
+            	</mediaLink>
+            </para>
+      </content>
+    </section>  
+  </developerConceptualDocument>
+</topic>

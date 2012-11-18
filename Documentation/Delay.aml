@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="37805fad-a7a9-4b43-92a1-b3826e866e4c" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>The delay instruction inserts a delay between instructions.</para>
+    </introduction>
+    <section>
+      <title>Properties</title>
+      <content>
+      	<list class="bullet">
+		  <listItem><para>Delay; time (in milliseconds) between frames when drawing the cursor. (Required Draw Cursor and Flash Cursor property)</para></listItem>
+		  <listItem><para>Length; the total time to wait.</para></listItem>
+		  <listItem><para>Flash Cursor; draw the cursor and then a frame without the cursor for the given amount of time defined by the Delay property. (Requires Draw Cursor property)</para></listItem>
+		  <listItem><para>Draw Cursor; draw the cursor</para></listItem>
+		</list>
+      </content>
+    </section>  
+    <section>
+      <title>Example</title>
+      <content>
+      		<para>Example delay with a flashing cursor</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="DelayExample" />
+            	</mediaLink>
+            </para>
+      </content>
+    </section>    
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,22 @@
+High
+- Add drag-reorder and drag-copy
+- Add shortcut keys for delete and insert
+- Add right click context menu
+- Change add to end of script
+
+Medium
+- Add instruction to remove previous text
+- Add alignment to text items
+- Cap number of recent files to 10
+- Improve error status text with error icon
+- Cap number of recent files to 10
+- Remember Window Size and Location
+- Remeber grid splitter locations
+- Add installer upgrades
+- Escape or Enter closes update check window
+
+Low
+- Add build step to deploy to ftp site
+- Flash validation error icon
+- Hide status bar when not used
+- Add rendering statistics

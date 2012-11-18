@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="f4f2df3e-fbb4-4fff-a4fe-22fec84781b9" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>Scripted GIF Builder is an application which turns a simple instruction script into a GIF animation.</para>
+	  <para>It was created to facilitate the text effect in movies where you see the text being typed on the screen. But it has many more applications.</para>
+    </introduction>
+    
+    <section address="Features">
+      <title>Features</title>
+      <content>
+		<list class="bullet">
+		  <listItem><para>Render; Turn an instruction script into an animated GIF</para></listItem>
+		  <listItem><para>Projects; Save current work and reload previous sessions</para></listItem>
+		</list>
+      </content>
+    </section>    
+  </developerConceptualDocument>
+</topic>

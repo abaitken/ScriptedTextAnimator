@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="054870bb-86bb-44dd-9e07-547adf8ba9ea" revisionNumber="1">
+  <developerGlossaryDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <glossary>
+	    <glossaryEntry>
+	      <terms>
+	        <term>Instruction</term>
+	      </terms>
+	      <definition>
+	        <para>Defines an action or multiple actions to be performed in the script.</para>
+	      </definition>
+	    </glossaryEntry>
+	    
+	    <glossaryEntry>
+	      <terms>
+	        <term>Script</term>
+	      </terms>
+	      <definition>
+	        <para>Collection of instructions used to execute to generate an animated GIF.</para>
+	      </definition>
+	    </glossaryEntry>
+    </glossary>
+  </developerGlossaryDocument>
+</topic>

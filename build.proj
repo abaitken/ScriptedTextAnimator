@@ -1,0 +1,137 @@
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="$(Configuration)==''">Debug</Configuration>
+    <Deploy Condition="$(Deploy)==''">false</Deploy>
+
+	<BinFolder>$(MSBuildProjectDirectory)\bin\$(Configuration)</BinFolder>	
+	<InstallFolder>$(MSBuildProjectDirectory)\bin\Installer</InstallFolder>
+    <TemperedSoftwareBuildAssemblyPath>$(MSBuildProjectDirectory)\Shared\TemperedSoftware.Build\bin\Release</TemperedSoftwareBuildAssemblyPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <VersionItem Include="$(MSBuildProjectDirectory)\Source\Include\ProductAssemblyInfo.cs">
+      <Encoding>ASCII</Encoding>
+	  <Update>All</Update>
+    </VersionItem>
+    <VersionItem Include="$(MSBuildProjectDirectory)\Shared\Include\SharedAssemblyInfo.cs">
+      <Encoding>UTF-8</Encoding>
+	  <Update>RevisionOnly</Update>
+    </VersionItem>
+  </ItemGroup>
+
+  <Import Project="$(TemperedSoftwareBuildAssemblyPath)\TemperedSoftware.Build.targets"/>
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+
+  <Target Name="GetVersionInfo">
+    <GetVersionParts VersionFile="$(MSBuildProjectDirectory)\AdditionalItems\Version.txt">
+      <Output TaskParameter="Major" PropertyName="Major" />
+      <Output TaskParameter="Minor" PropertyName="Minor" />
+      <Output TaskParameter="Build" PropertyName="Build" />
+    </GetVersionParts>
+    
+    <SvnInfo LocalPath="$(MSBuildProjectDirectory)">
+      <Output TaskParameter="Revision" PropertyName="Revision" />
+    </SvnInfo>
+  </Target>
+
+  <Target Name="RestoreAssemblyInfo" DependsOnTargets="GetVersionInfo">
+    <Copy SourceFiles="@(VersionItem->'%(RelativeDir)%(Filename).tmp')" DestinationFiles="@(VersionItem)" />
+
+    <Delete Files="@(VersionItem->'%(RelativeDir)%(Filename).tmp')" />
+  </Target>
+
+  <Target Name="UpdateAssemblyInfo" DependsOnTargets="GetVersionInfo">
+    <Copy SourceFiles="@(VersionItem)" DestinationFiles="@(VersionItem->'%(RelativeDir)%(Filename).tmp')" />
+
+    <FileUpdate Files="%(VersionItem.Identity)"
+                Regex='\[assembly: AssemblyFileVersion\("(\d+).(\d+).(\d+).(\d+)"\)\]'
+                ReplacementText='[assembly: AssemblyFileVersion("$(Major).$(Minor).$(Build).$(Revision)")]'
+                Encoding="%(VersionItem.Encoding)"
+				Condition="%(VersionItem.Update)=='All'" />
+				
+    <FileUpdate Files="%(VersionItem.Identity)"
+                Regex='\[assembly: AssemblyFileVersion\("(\d+).(\d+).(\d+).(\d+)"\)\]'
+                ReplacementText='[assembly: AssemblyFileVersion("$1.$2.$3.$(Revision)")]'
+                Encoding="%(VersionItem.Encoding)"
+				Condition="%(VersionItem.Update)=='RevisionOnly'" />
+  </Target>
+  
+  <Target Name="BuildSource" DependsOnTargets="UpdateAssemblyInfo">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\Source\ScriptedGifBuilder\ScriptedGifBuilder.sln" 
+			 Properties="Configuration=$(Configuration);
+						 OutputPath=$(BinFolder)" />
+  </Target>
+
+  <Target Name="BuildDocumentation">
+	<Exec Command='"C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" "$(MSBuildProjectDirectory)\Documentation\ScriptedGifBuilder.Documentation.shfbproj" /p:Configuration=$(Configuration) /p:OutputPath="$(BinFolder)"' />
+  </Target>
+  
+  <Target Name="BuildInstaller" DependsOnTargets="BuildSource;BuildDocumentation" Condition="$(Configuration)=='Release'">
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.wxi" DestinationFiles="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.tmp" />
+
+    <FileUpdate Files="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.wxi"
+                Regex='&lt;\?define Version = \d+\.\d+\.\d+\.\d+ \?&gt;'
+                ReplacementText='&lt;?define Version = $(Major).$(Minor).$(Build).$(Revision) ?&gt;'
+                Encoding="ASCII" />
+
+    <FileUpdate Files="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.wxi"
+                Regex='&lt;\?define FileSource = .*? \?&gt;'
+                ReplacementText='&lt;?define FileSource = $(BinFolder) ?&gt;'
+                Encoding="ASCII" />
+				
+    <MSBuild Projects="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\ScriptedGifBuilder.Setup.sln" 
+			 Properties="Configuration=$(Configuration);
+						 OutputPath=$(InstallFolder)" />
+				
+				
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.tmp" DestinationFiles="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.wxi" />
+
+    <Delete Files="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.tmp" />
+  </Target>
+
+  <Target Name="Deploy" DependsOnTargets="BuildInstaller" Condition="$(Deploy)=='true'">
+	<!-- Clean start -->
+	<RemoveDir Directories="$(MSBuildProjectDirectory)\bin\Deploy" />	
+    <MakeDir Directories="$(MSBuildProjectDirectory)\bin\Deploy" />
+	
+	<!-- Create version file -->
+	<WriteLinesToFile File="$(MSBuildProjectDirectory)\bin\Deploy\Version.txt"
+                      Lines="$(Major).$(Minor).$(Build).$(Revision)"
+                      Overwrite="true" />
+	
+	<!-- Get Installer -->
+	<Copy SourceFiles="$(InstallFolder)\ScriptedGifBuilder.msi"
+		  DestinationFiles="$(MSBuildProjectDirectory)\bin\Deploy\files\$(Major).$(Minor).$(Build).$(Revision)\ScriptedGifBuilder.msi" />
+		  
+	<!-- Get and update website -->
+	<CreateItem Include="$(MSBuildProjectDirectory)\Website\**\*.*">
+		<Output TaskParameter="Include" ItemName="WebsiteFiles" />
+	</CreateItem>
+	
+	<Copy SourceFiles="@(WebsiteFiles)" DestinationFiles="@(WebsiteFiles->'$(MSBuildProjectDirectory)\bin\Deploy\%(RecursiveDir)%(Filename)%(Extension)')" />
+	
+    <FileUpdate Files="$(MSBuildProjectDirectory)\bin\Deploy\index.html"
+                Regex='\$\(Major\)'
+                ReplacementText='$(Major)'
+                Encoding="ASCII" />
+    <FileUpdate Files="$(MSBuildProjectDirectory)\bin\Deploy\index.html"
+                Regex='\$\(Minor\)'
+                ReplacementText='$(Minor)'
+                Encoding="ASCII" />
+    <FileUpdate Files="$(MSBuildProjectDirectory)\bin\Deploy\index.html"
+                Regex='\$\(Build\)'
+                ReplacementText='$(Build)'
+                Encoding="ASCII" />
+    <FileUpdate Files="$(MSBuildProjectDirectory)\bin\Deploy\index.html"
+                Regex='\$\(Revision\)'
+                ReplacementText='$(Revision)'
+                Encoding="ASCII" />
+				
+	<!-- Deploy to FTP -->
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="BuildSource;RestoreAssemblyInfo;BuildDocumentation;BuildInstaller;Deploy">
+	  
+
+  </Target>
+</Project>

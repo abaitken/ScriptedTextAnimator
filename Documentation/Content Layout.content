@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="f4f2df3e-fbb4-4fff-a4fe-22fec84781b9" visible="True" isDefault="true" title="Introduction" />
+  <Topic id="be603e2c-f60c-4d6b-98b9-8c672fccd0cc" visible="True" title="License" />
+  <Topic id="a7dbc710-212b-4bb9-bfcf-662a76ce75b3" visible="True" title="Requirements" />
+  <Topic id="230c5ba6-829c-4925-a42b-9334ca2508b8" visible="True" isExpanded="true" title="Getting Started">
+    <Topic id="f2505190-0720-41eb-94f2-051a67eb8917" visible="True" title="User Interface" />
+    <Topic id="d2a8d4ee-320e-4487-b4aa-eafdb61fdcd5" visible="True" title="How To Add, Insert and Delete Instructions" />
+    <Topic id="748e50e2-21d2-484e-ae0e-3247902831f0" visible="True" />
+  </Topic>
+  <Topic id="094e395e-6c84-4e53-9813-e57615a74e4a" visible="True" isExpanded="true" title="Instructions">
+    <Topic id="24fe4bb9-4044-49f2-90a9-3efae0c15f8f" visible="True" title="Typed Text" />
+    <Topic id="8d1502a5-9f81-428d-989d-8552f74150a1" visible="True" title="Static Text" />
+    <Topic id="37805fad-a7a9-4b43-92a1-b3826e866e4c" visible="True" title="Delay" />
+    <Topic id="6df8c37a-da56-4b2a-824a-7ab570fe65cf" visible="True" title="Wipe Frame" />
+    <Topic id="61b096e8-a8ae-45bf-ad36-d2de12c2b8b0" visible="True" title="New Line" />
+    <Topic id="68239e32-6ca8-4d6b-86de-1277480fd0a0" visible="True" isSelected="true" />
+  </Topic>
+  <Topic id="054870bb-86bb-44dd-9e07-547adf8ba9ea" visible="True" title="Glossary" />
+  <Topic id="9875a3b9-11f2-419b-a27e-e00ae94dbe89" visible="True" title="Known Issues" />
+</Topics>

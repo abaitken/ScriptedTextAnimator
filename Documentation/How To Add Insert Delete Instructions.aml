@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d2a8d4ee-320e-4487-b4aa-eafdb61fdcd5" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>This topic will follow how to Add, Insert and Delete instructions</para>
+    </introduction>
+    
+    <procedure>
+      <title>Add Instruction</title>
+      <steps class="ordered">
+        <step>
+          <content>
+            <para>Select the desired instruction from the drop down list on the toolbar.</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="InstructionListHighlighted" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Click the add button</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="AddButtonHighlighted" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+        <step>
+        	<content>
+        		<para>Change the properties as desired in the Selected Instruction Property Region</para>
+        	</content>
+        </step>
+      </steps>
+    </procedure>
+    
+    <procedure>
+      <title>Insert Instruction</title>
+      <steps class="ordered">
+        <step>
+          <content>
+            <para>Select the instruction in the script where the new instruction will be inserted before.</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="SelectedInstruction" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Select the desired instruction from the drop down list on the toolbar.</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="InstructionListHighlighted" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Click the insert button</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="InsertButtonHighlighted" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+        <step>
+        	<content>
+        		<para>Change the properties as desired in the Selected Instruction Property Region</para>
+        	</content>
+        </step>
+      </steps>
+    </procedure>
+    
+    <procedure>
+      <title>Insert Instruction</title>
+      <steps class="ordered">
+        <step>
+          <content>
+            <para>Select the instruction in the script to be deleted.</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="SelectedInstruction" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+        <step>
+          <content>
+            <para>Click the delete button</para>
+            <para>
+            	<mediaLink>
+            		<image placement="left" xlink:href="DeleteButtonHighlighted" />
+            	</mediaLink>
+            </para>
+          </content>
+        </step>
+      </steps>
+    </procedure>
+    
+  </developerHowToDocument>
+</topic>
