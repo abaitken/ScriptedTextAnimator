@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+
+  <PropertyRef Id="NETFRAMEWORK35"/>
+  <PropertyRef Id="NETFRAMEWORK35_SP_LEVEL" />
+
+  <Condition Message="Tempered Software Scripted Text Animator requires .NET Framework 3.5 SP1. Please install the .NET Framework then run this installer again.">
+    <![CDATA[Installed OR (NETFRAMEWORK35 AND NETFRAMEWORK35_SP_LEVEL AND NOT NETFRAMEWORK35_SP_LEVEL = "#0")]]>
+  </Condition>
+  
+</Include>

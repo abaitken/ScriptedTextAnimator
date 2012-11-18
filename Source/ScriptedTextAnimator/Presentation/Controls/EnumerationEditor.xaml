@@ -1,0 +1,6 @@
+﻿<UserControl x:Class="ScriptedTextAnimator.Presentation.Controls.EnumerationEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="ThisControl">
+    <ComboBox ItemsSource="{Binding Items, ElementName=ThisControl}" SelectedItem="{Binding SelectedItem, ElementName=ThisControl}" />
+</UserControl>

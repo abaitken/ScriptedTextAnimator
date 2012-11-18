@@ -1,4 +1,4 @@
-Scripted GIF Builder Changelog
+Scripted Text Animator Changelog
 ==============================
 
 ????
@@ -29,4 +29,4 @@ v1.0.3.0		21 August 2012
 - Introduced value error reporting
 
 v1.0.0.0		15 August 2012
-- Created basic GIF Builder to render a text script as an animated typed GIF
+- Created basic app to render a text script as an animated typed GIF

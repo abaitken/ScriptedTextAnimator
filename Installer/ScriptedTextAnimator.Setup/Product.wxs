@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Properties.wxi ?>
+  
+	<Product Id="*" 
+           Name="$(var.ProductName)" 
+           Language="1033" 
+           Version="$(var.Version)" 
+           Manufacturer="$(var.Manufacturer)" 
+           UpgradeCode="$(var.UpgradeCode)">
+    
+		<Package InstallerVersion="300" 
+             Compressed="yes" 
+             InstallScope="perMachine"
+             Manufacturer="$(var.Manufacturer)"
+             InstallPrivileges="elevated" />
+
+    <Icon Id="icon.ico" SourceFile="icon.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+    
+    <EnsureTable Id="Feature" />
+    <EnsureTable Id="FeatureComponents" />
+    <EnsureTable Id="Extension" />
+    <EnsureTable Id="Class" />
+    <EnsureTable Id="TypeLib" />
+    <EnsureTable Id="Condition" />
+    <EnsureTable Id="PublishComponent" />    
+    
+    <?include Conditions\DotNet.wxi ?>
+    <?include Conditions\Windows.wxi ?>
+    <?include Upgrade.wxi ?>
+    <?include InstallLocation.wxi ?>
+    
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" CompressionLevel="high" />
+
+		<!--<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate  />-->
+
+    <!-- Program Files -->
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+        <Directory Id="ManufacturerFolder" Name="TemperedSoftware">
+				  <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
+        </Directory>
+			</Directory>
+
+      <!-- Start menu -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ManufacturerMenuFolder" Name="$(var.Manufacturer)">
+          <Directory Id="ApplicationMenuFolder" Name="$(var.ProductName)" />
+        </Directory>
+      </Directory>
+		</Directory>
+
+        
+		<Feature Id="ProductFeature" Title="Program Files" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+    
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="ScriptedTextAnimator.exe" Guid="*">
+        <File Id="ScriptedTextAnimator.exe" Name="ScriptedTextAnimator.exe" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\ScriptedTextAnimator.exe">
+
+
+          <Shortcut Id="ApplicationShortcut"
+                    Name="$(var.ProductName)"
+                    Directory="ApplicationMenuFolder"
+                    Description="Launch $(var.ProductName)"
+                    Advertise="yes"
+                    Icon="icon.ico"
+                    WorkingDirectory="INSTALLLOCATION" />
+
+        </File>
+
+        <RemoveFolder Id="ManufacturerMenuFolder" On="uninstall" Directory="ManufacturerMenuFolder" />
+        <RemoveFolder Id="ApplicationMenuFolder" On="uninstall" Directory="ApplicationMenuFolder" />
+      </Component>
+
+      <Component Id="Microsoft.Practices.Composite.dll" Guid="*">
+        <File Id="Microsoft.Practices.Composite.dll" Name="Microsoft.Practices.Composite.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\Microsoft.Practices.Composite.dll" />
+      </Component>
+
+      <Component Id="Microsoft.Practices.Composite.Presentation.dll" Guid="*">
+        <File Id="Microsoft.Practices.Composite.Presentation.dll" Name="Microsoft.Practices.Composite.Presentation.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\Microsoft.Practices.Composite.Presentation.dll" />
+      </Component>
+
+      <Component Id="Microsoft.Practices.Composite.UnityExtensions.dll" Guid="*">
+        <File Id="Microsoft.Practices.Composite.UnityExtensions.dll" Name="Microsoft.Practices.Composite.UnityExtensions.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\Microsoft.Practices.Composite.UnityExtensions.dll" />
+      </Component>
+
+      <Component Id="Microsoft.Practices.ObjectBuilder2.dll" Guid="*">
+        <File Id="Microsoft.Practices.ObjectBuilder2.dll" Name="Microsoft.Practices.ObjectBuilder2.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\Microsoft.Practices.ObjectBuilder2.dll" />
+      </Component>
+
+      <Component Id="Microsoft.Practices.ServiceLocation.dll" Guid="*">
+        <File Id="Microsoft.Practices.ServiceLocation.dll" Name="Microsoft.Practices.ServiceLocation.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\Microsoft.Practices.ServiceLocation.dll" />
+      </Component>
+
+      <Component Id="Microsoft.Practices.Unity.dll" Guid="*">
+        <File Id="Microsoft.Practices.Unity.dll" Name="Microsoft.Practices.Unity.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\Microsoft.Practices.Unity.dll" />
+      </Component>
+
+      <Component Id="TemperedSoftware.Shared.dll" Guid="*">
+        <File Id="TemperedSoftware.Shared.dll" Name="TemperedSoftware.Shared.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\TemperedSoftware.Shared.dll" />
+      </Component>
+
+      <Component Id="TemperedSoftware.Shared.Presentation.dll" Guid="*">
+        <File Id="TemperedSoftware.Shared.Presentation.dll" Name="TemperedSoftware.Shared.Presentation.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\TemperedSoftware.Shared.Presentation.dll" />
+      </Component>
+
+      <Component Id="ScriptedTextAnimator.chm" Guid="*">
+        <File Id="ScriptedTextAnimator.chm" Name="ScriptedTextAnimator.chm" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\ScriptedTextAnimator.chm" />
+      </Component>
+		</ComponentGroup>
+    
+    <WixVariable Id="WixUILicenseRtf" Value="EULA.rtf" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+    <UIRef Id="WixUI_InstallDir" />
+	</Product>
+</Wix>

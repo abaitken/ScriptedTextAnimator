@@ -1,4 +1,6 @@
 High
+- Complete rename
+	- Redo Documentation screenies
 - Add drag-reorder and drag-copy
 - Add shortcut keys for delete and insert
 - Add right click context menu

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Include>
-	<?define Version = 1.0.0.0 ?>
-  <?define FileSource = ..\..\bin\Release ?>
-  <?define UpgradeCode = 25CB3514-446E-488D-BD43-EAC91D111695 ?>
-  <?define Manufacturer = Tempered Software ?>
-</Include>

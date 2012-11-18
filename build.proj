@@ -57,36 +57,36 @@
   </Target>
   
   <Target Name="BuildSource" DependsOnTargets="UpdateAssemblyInfo">
-    <MSBuild Projects="$(MSBuildProjectDirectory)\Source\ScriptedGifBuilder\ScriptedGifBuilder.sln" 
+    <MSBuild Projects="$(MSBuildProjectDirectory)\Source\ScriptedTextAnimator\ScriptedTextAnimator.sln" 
 			 Properties="Configuration=$(Configuration);
 						 OutputPath=$(BinFolder)" />
   </Target>
 
   <Target Name="BuildDocumentation">
-	<Exec Command='"C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" "$(MSBuildProjectDirectory)\Documentation\ScriptedGifBuilder.Documentation.shfbproj" /p:Configuration=$(Configuration) /p:OutputPath="$(BinFolder)"' />
+	<Exec Command='"C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" "$(MSBuildProjectDirectory)\Documentation\ScriptedTextAnimator.Documentation.shfbproj" /p:Configuration=$(Configuration) /p:OutputPath="$(BinFolder)"' />
   </Target>
   
   <Target Name="BuildInstaller" DependsOnTargets="BuildSource;BuildDocumentation" Condition="$(Configuration)=='Release'">
-    <Copy SourceFiles="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.wxi" DestinationFiles="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.tmp" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\Installer\ScriptedTextAnimator.Setup\Properties.wxi" DestinationFiles="$(MSBuildProjectDirectory)\Installer\ScriptedTextAnimator.Setup\Properties.tmp" />
 
-    <FileUpdate Files="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.wxi"
+    <FileUpdate Files="$(MSBuildProjectDirectory)\Installer\ScriptedTextAnimator.Setup\Properties.wxi"
                 Regex='&lt;\?define Version = \d+\.\d+\.\d+\.\d+ \?&gt;'
                 ReplacementText='&lt;?define Version = $(Major).$(Minor).$(Build).$(Revision) ?&gt;'
                 Encoding="ASCII" />
 
-    <FileUpdate Files="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.wxi"
+    <FileUpdate Files="$(MSBuildProjectDirectory)\Installer\ScriptedTextAnimator.Setup\Properties.wxi"
                 Regex='&lt;\?define FileSource = .*? \?&gt;'
                 ReplacementText='&lt;?define FileSource = $(BinFolder) ?&gt;'
                 Encoding="ASCII" />
 				
-    <MSBuild Projects="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\ScriptedGifBuilder.Setup.sln" 
+    <MSBuild Projects="$(MSBuildProjectDirectory)\Installer\ScriptedTextAnimator.Setup\ScriptedTextAnimator.Setup.sln" 
 			 Properties="Configuration=$(Configuration);
 						 OutputPath=$(InstallFolder)" />
 				
 				
-    <Copy SourceFiles="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.tmp" DestinationFiles="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.wxi" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\Installer\ScriptedTextAnimator.Setup\Properties.tmp" DestinationFiles="$(MSBuildProjectDirectory)\Installer\ScriptedTextAnimator.Setup\Properties.wxi" />
 
-    <Delete Files="$(MSBuildProjectDirectory)\Installer\ScriptedGifBuilder.Setup\Properties.tmp" />
+    <Delete Files="$(MSBuildProjectDirectory)\Installer\ScriptedTextAnimator.Setup\Properties.tmp" />
   </Target>
 
   <Target Name="Deploy" DependsOnTargets="BuildInstaller" Condition="$(Deploy)=='true'">
@@ -100,8 +100,8 @@
                       Overwrite="true" />
 	
 	<!-- Get Installer -->
-	<Copy SourceFiles="$(InstallFolder)\ScriptedGifBuilder.msi"
-		  DestinationFiles="$(MSBuildProjectDirectory)\bin\Deploy\files\$(Major).$(Minor).$(Build).$(Revision)\ScriptedGifBuilder.msi" />
+	<Copy SourceFiles="$(InstallFolder)\ScriptedTextAnimator.msi"
+		  DestinationFiles="$(MSBuildProjectDirectory)\bin\Deploy\files\$(Major).$(Minor).$(Build).$(Revision)\ScriptedTextAnimator.msi" />
 		  
 	<!-- Get and update website -->
 	<CreateItem Include="$(MSBuildProjectDirectory)\Website\**\*.*">

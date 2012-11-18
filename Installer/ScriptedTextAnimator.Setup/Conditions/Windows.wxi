@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+
+  <!-- http://msdn.microsoft.com/en-us/library/aa370556(VS.85).aspx -->
+  <Condition Message="Tempered Software Scripted Text Animator requires Windows XP or later.">
+    <![CDATA[VersionNT >= 501 And WindowsBuild >= 2600]]>
+  </Condition>
+</Include>

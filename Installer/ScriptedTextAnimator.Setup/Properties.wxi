@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+	<?define Version = 1.1.0.1209 ?>
+  <?define FileSource = E:\Logaan\Documents\Visual Studio 2008\Projects\ScriptedTextAnimator\bin\Release ?>
+  <?define UpgradeCode = 25CB3514-446E-488D-BD43-EAC91D111695 ?>
+  <?define Manufacturer = Tempered Software ?>
+  <?define ProductName = Scripted Text Animator ?>
+</Include>
