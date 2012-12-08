@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using System.Windows.Media;
 using ScriptedTextAnimator.Instructions;
+using ScriptedTextAnimator.ValidationModel;
 
 namespace ScriptedTextAnimator.Presentation.Main
 {

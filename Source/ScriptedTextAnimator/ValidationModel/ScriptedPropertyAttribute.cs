@@ -1,38 +1,39 @@
 ﻿using System;
+using ScriptedTextAnimator.ValueStrategies;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValidationModel
 {
     [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     internal class ScriptedPropertyAttribute : Attribute
     {
         private readonly string displayName;
-        private readonly ValueStrategyBase valueStrategy;
+        private readonly IValueStrategy valueStrategy;
 
         public ScriptedPropertyAttribute(string displayName, Type valueStrategy)
         {
             this.displayName = displayName;
 
-            if (!valueStrategy.IsSubclassOf(typeof (ValueStrategyBase)))
-                throw new InvalidOperationException("valueStrategy must be type of ValueStrategyBase");
+            if (!typeof(IValueStrategy).IsAssignableFrom(valueStrategy))
+                throw new InvalidOperationException("valueStrategy must be type of IValueStrategy");
 
-            this.valueStrategy = (ValueStrategyBase) Activator.CreateInstance(valueStrategy);
+            this.valueStrategy = (IValueStrategy)Activator.CreateInstance(valueStrategy);
         }
 
-        public ScriptedPropertyAttribute(string displayName, object defaultValue, object minValue, object maxValue)
+        public ScriptedPropertyAttribute(string displayName, int defaultValue, int minValue, int maxValue)
         {
             this.displayName = displayName;
 
-            valueStrategy = new GenericValueStrategy(defaultValue, minValue, maxValue);
+            valueStrategy = new IntegerStrategy(defaultValue, minValue, maxValue);
         }
 
         public ScriptedPropertyAttribute(string displayName, object defaultValue)
         {
             this.displayName = displayName;
 
-            valueStrategy = new AnyValueStrategy(defaultValue);
+            valueStrategy = InferredValueStrategy.CreateFrom(defaultValue);
         }
 
-        public ValueStrategyBase ValueStrategy
+        public IValueStrategy ValueStrategy
         {
             get { return valueStrategy; }
         }

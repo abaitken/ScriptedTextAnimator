@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.Helpers
 {
     internal static class TimeSpanExtensions
     {

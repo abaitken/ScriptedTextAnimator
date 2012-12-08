@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
+using ScriptedTextAnimator.Instructions;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValueStrategies
 {
     internal class BlackDefaultValueStrategy : ColorValueStrategyBase
     {

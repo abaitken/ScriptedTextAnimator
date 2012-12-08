@@ -81,27 +81,29 @@
     <Compile Include="..\Include\ProductAssemblyInfo.cs">
       <Link>Properties\ProductAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Instructions\AnyValueStrategy.cs" />
-    <Compile Include="Instructions\BlackDefaultValueStrategy.cs" />
+    <Compile Include="ValueStrategies\InferredValueStrategy.cs" />
+    <Compile Include="ValueStrategies\BlackDefaultValueStrategy.cs" />
     <Compile Include="Instructions\BlinkingTextInstruction.cs" />
-    <Compile Include="Instructions\ColorValueStrategyBase.cs" />
-    <Compile Include="Instructions\DarkGreenDefaultValueStrategy.cs" />
+    <Compile Include="ValueStrategies\ColorValueStrategyBase.cs" />
+    <Compile Include="ValueStrategies\DarkGreenDefaultValueStrategy.cs" />
     <Compile Include="Instructions\DelayInstruction.cs" />
-    <Compile Include="Instructions\FontValueStrategy.cs" />
-    <Compile Include="Instructions\GenericValueStrategy.cs" />
-    <Compile Include="Instructions\IValueStrategy.cs" />
-    <Compile Include="Instructions\LimeGreenDefaultValueStrategy.cs" />
+    <Compile Include="ValueStrategies\FontValueStrategy.cs" />
+    <Compile Include="ValueStrategies\IntegerStrategy.cs" />
+    <Compile Include="ValueStrategies\IValueStrategy.cs" />
+    <Compile Include="ValueStrategies\LimeGreenDefaultValueStrategy.cs" />
     <Compile Include="Instructions\Measure.cs" />
     <Compile Include="Instructions\NewLine.cs" />
     <Compile Include="Instructions\OriginInstruction.cs" />
     <Compile Include="Instructions\ProjectInstructions.cs" />
-    <Compile Include="Instructions\ScriptedActionAttribute.cs" />
-    <Compile Include="Instructions\ScriptedPropertyAttribute.cs" />
+    <Compile Include="ValidationModel\ScriptedActionAttribute.cs" />
+    <Compile Include="ValidationModel\ScriptedPropertyAttribute.cs" />
     <Compile Include="Instructions\StaticTextInstruction.cs" />
     <Compile Include="Instructions\TextInstruction.cs" />
-    <Compile Include="Instructions\TimeSpanExtensions.cs" />
+    <Compile Include="Helpers\TimeSpanExtensions.cs" />
     <Compile Include="Instructions\TypedTextInstruction.cs" />
-    <Compile Include="Instructions\ValueStrategyBase.cs" />
+    <Compile Include="ValueStrategies\ComparableStrategy.cs" />
+    <Compile Include="ValueStrategies\TextValueStrategy.cs" />
+    <Compile Include="ValueStrategies\ValueStrategyBase.cs" />
     <Compile Include="Instructions\WipeFrame.cs" />
     <Compile Include="Presentation\About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
@@ -117,6 +119,9 @@
     <Compile Include="Presentation\ErrorHandling\ExceptionMessageViewModel.cs" />
     <Compile Include="Presentation\ErrorHandling\ExceptionMessageWindow.xaml.cs">
       <DependentUpon>ExceptionMessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ScriptListBox.xaml.cs">
+      <DependentUpon>ScriptListBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\VersionCheck\ErrorState.cs" />
     <Compile Include="Presentation\VersionCheck\IVersionState.cs" />
@@ -151,10 +156,10 @@
       <DependentUpon>NumberEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rendering\RenderingHelper.cs" />
-    <Compile Include="Instructions\IInstructionProperty.cs" />
+    <Compile Include="ValidationModel\IInstructionProperty.cs" />
     <Compile Include="Presentation\Main\IMainWindowViewModel.cs" />
-    <Compile Include="Instructions\InstructionItem.cs" />
-    <Compile Include="Instructions\InstructionProperty.cs" />
+    <Compile Include="ValidationModel\InstructionItem.cs" />
+    <Compile Include="ValidationModel\InstructionProperty.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project\Project.cs" />
     <Compile Include="Project\ProjectManager.cs" />
@@ -249,6 +254,10 @@
     <Page Include="Presentation\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\ScriptListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\VersionCheck\VersionCheckWindow.xaml">
       <SubType>Designer</SubType>

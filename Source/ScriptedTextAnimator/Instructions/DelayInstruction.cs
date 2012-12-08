@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using ScriptedTextAnimator.Rendering;
+using ScriptedTextAnimator.ValidationModel;
 
 namespace ScriptedTextAnimator.Instructions
 {

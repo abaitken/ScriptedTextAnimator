@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using ScriptedTextAnimator.Instructions;
+using ScriptedTextAnimator.ValidationModel;
 
 namespace ScriptedTextAnimator.Presentation.Controls
 {

@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Reflection;
 using ScriptedTextAnimator.Instructions;
+using ScriptedTextAnimator.ValidationModel;
 
 namespace ScriptedTextAnimator.Presentation
 {

@@ -2,10 +2,11 @@
 using System.Linq;
 using ScriptedTextAnimator.Instructions;
 using ScriptedTextAnimator.Presentation.Main;
+using ScriptedTextAnimator.ValidationModel;
 
 namespace ScriptedTextAnimator.Presentation
 {
-    internal class ScriptedInstructionViewModel : ValidationModel
+    internal class ScriptedInstructionViewModel : ValidationModelBase
     {
         private readonly IMainWindowViewModel parentViewModel;
 

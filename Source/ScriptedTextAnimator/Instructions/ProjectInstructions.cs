@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Xml.Serialization;
 using ScriptedTextAnimator.Rendering;
+using ScriptedTextAnimator.ValidationModel;
+using ScriptedTextAnimator.ValueStrategies;
 
 namespace ScriptedTextAnimator.Instructions
 {

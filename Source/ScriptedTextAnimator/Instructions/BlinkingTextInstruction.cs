@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ScriptedTextAnimator.Rendering;
+using ScriptedTextAnimator.ValidationModel;
 
 namespace ScriptedTextAnimator.Instructions
 {

@@ -1,20 +1,13 @@
-﻿using System;
-using System.Drawing.Text;
+﻿using System.Drawing.Text;
 using System.Linq;
-using System.Windows.Controls;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValueStrategies
 {
-    internal class FontValueStrategy : ValueStrategyBase
+    internal class FontValueStrategy : ValueStrategyBase<string>
     {
         public override object DefaultValue
         {
             get { return "Courier New"; }
-        }
-
-        protected override Type Type
-        {
-            get { return typeof (string); }
         }
 
         public override bool IsMultiValue
@@ -32,11 +25,6 @@ namespace ScriptedTextAnimator.Instructions
 
                 return results.ToArray();
             }
-        }
-
-        protected override ValidationResult ValidateImpl(object value)
-        {
-            return ValidationResult.ValidResult;
         }
     }
 }

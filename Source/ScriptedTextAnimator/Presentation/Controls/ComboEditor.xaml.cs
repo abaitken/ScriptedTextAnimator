@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using ScriptedTextAnimator.Instructions;
+using ScriptedTextAnimator.ValidationModel;
 
 namespace ScriptedTextAnimator.Presentation.Controls
 {

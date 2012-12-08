@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Reflection;
 using System.Windows.Controls;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValueStrategies
 {
-    internal class GenericValueStrategy : ValueStrategyBase
+    internal abstract class ComparableStrategy<T> : ValueStrategyBase<T>
+        where T : IComparable<T>
     {
-        private readonly object defaultValue;
-        private readonly object maxValue;
-        private readonly object minValue;
+        private readonly T defaultValue;
+        private readonly T maxValue;
+        private readonly T minValue;
 
-        public GenericValueStrategy(object defaultValue, object minValue, object maxValue)
+        protected ComparableStrategy(T defaultValue, T minValue, T maxValue)
         {
             if (!defaultValue.GetType().IsValueType)
                 throw new InvalidOperationException("Values must be a value type");
@@ -32,17 +32,10 @@ namespace ScriptedTextAnimator.Instructions
             get { return defaultValue; }
         }
 
-        protected override Type Type
+        protected override ValidationResult ValidateImpl(T value)
         {
-            get { return DefaultValue.GetType(); }
-        }
-
-        protected override ValidationResult ValidateImpl(object value)
-        {
-            var minComparison =
-                (int) Type.InvokeMember("CompareTo", BindingFlags.InvokeMethod, null, value, new[] {minValue});
-            var maxComparison =
-                (int) Type.InvokeMember("CompareTo", BindingFlags.InvokeMethod, null, value, new[] {maxValue});
+            var minComparison = value.CompareTo(minValue);
+            var maxComparison = value.CompareTo(maxValue);
 
             var isValid = minComparison >= 0 && maxComparison <= 0;
 
@@ -51,5 +44,6 @@ namespace ScriptedTextAnimator.Instructions
 
             return new ValidationResult(false, string.Format("Value must be between {0} and {1}", minValue, maxValue));
         }
+        
     }
 }

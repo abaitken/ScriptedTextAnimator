@@ -1,11 +1,13 @@
 ﻿using System.Drawing;
 using ScriptedTextAnimator.Rendering;
+using ScriptedTextAnimator.ValidationModel;
+using ScriptedTextAnimator.ValueStrategies;
 
 namespace ScriptedTextAnimator.Instructions
 {
     public abstract class TextInstruction : ScriptedInstruction
     {
-        [ScriptedProperty("Text", "")]
+        [ScriptedProperty("Text", typeof(TextValueStrategy))]
         public string Text { get; set; }
 
         internal override Measure Measure(Graphics g, ProjectInstructions projectInstructions, ScriptedInstruction[] script)

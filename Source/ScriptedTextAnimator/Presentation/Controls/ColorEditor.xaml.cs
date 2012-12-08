@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows;
 using ScriptedTextAnimator.Instructions;
+using ScriptedTextAnimator.ValidationModel;
 using Size = System.Windows.Size;
 
 namespace ScriptedTextAnimator.Presentation.Controls

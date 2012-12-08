@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Windows.Controls;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValueStrategies
 {
-    internal abstract class ValueStrategyBase : IValueStrategy
+    internal abstract class ValueStrategyBase<T> : IValueStrategy
     {
         public abstract object DefaultValue { get; }
-        protected abstract Type Type { get; }
 
         #region IValueStrategy Members
 
@@ -25,14 +24,17 @@ namespace ScriptedTextAnimator.Instructions
         public ValidationResult Validate(object value)
         {
             if (value == null)
-                return ValidationResult.ValidResult;
+                return new ValidationResult(false, "Null value");
 
-            if (value.GetType() != Type)
-                return ValidationResult.ValidResult;
+            if (value.GetType() != typeof(T))
+                return new ValidationResult(false, "Types do not match");
 
-            return ValidateImpl(value);
+            return ValidateImpl((T)value);
         }
 
-        protected abstract ValidationResult ValidateImpl(object value);
+        protected virtual ValidationResult ValidateImpl(T value)
+        {
+            return ValidationResult.ValidResult;
+        }
     }
 }

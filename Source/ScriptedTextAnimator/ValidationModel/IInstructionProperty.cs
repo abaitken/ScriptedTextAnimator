@@ -1,6 +1,8 @@
 ﻿using System;
+using ScriptedTextAnimator.Instructions;
+using ScriptedTextAnimator.ValueStrategies;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValidationModel
 {
     public interface IInstructionProperty : IValidationModel
     {

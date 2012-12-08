@@ -18,6 +18,7 @@ using ScriptedTextAnimator.Presentation.ErrorHandling;
 using ScriptedTextAnimator.Project;
 using ScriptedTextAnimator.Properties;
 using ScriptedTextAnimator.Rendering;
+using ScriptedTextAnimator.ValidationModel;
 using TemperedSoftware.Shared.FileSystem;
 using TemperedSoftware.Shared.Presentation.Commands;
 using TemperedSoftware.Shared.Presentation.PresentationModel;
@@ -435,7 +436,7 @@ Are you sure you wish to continue?",
         private static string CreateFilter(bool isLoad)
         {
             var filterBuilder = new FileDialogFilterBuilder();
-            filterBuilder.Add("Project Files", string.Format("*.{0}", defaultExtension));
+            filterBuilder.Add("Project Files", string.Format("*{0}", defaultExtension));
 
             if (isLoad)
             {

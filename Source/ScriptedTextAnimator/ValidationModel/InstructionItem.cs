@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValidationModel
 {
     internal class InstructionItem
     {

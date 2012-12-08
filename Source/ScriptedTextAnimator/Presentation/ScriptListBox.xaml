@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="ScriptedTextAnimator.Presentation.ScriptListBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ListBox ItemsSource="{Binding Script}" SelectedItem="{Binding SelectedInstruction}" SelectedIndex="{Binding SelectedIndex}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding DisplayText}" Margin="4" />
+                    <Grid Visibility="{Binding IsValid, Converter={StaticResource BooleanVisibilityConverter}, ConverterParameter=False}">
+                        <Image Source="{StaticResource ValidationError}" Width="16" Height="16" ToolTip="{Binding ValidationMessage}" />
+                    </Grid>
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</UserControl>

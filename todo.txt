@@ -7,7 +7,7 @@ High
 - Change add to end of script
 
 Medium
-- Add instruction to remove previous text
+- Add instruction to remove/reverse previous text
 - Add alignment to text items
 - Cap number of recent files to 10
 - Improve error status text with error icon
@@ -16,6 +16,8 @@ Medium
 - Remeber grid splitter locations
 - Add installer upgrades
 - Escape or Enter closes update check window
+- Allow random character selections during animation
+- Add number count up/down instruction
 
 Low
 - Add build step to deploy to ftp site

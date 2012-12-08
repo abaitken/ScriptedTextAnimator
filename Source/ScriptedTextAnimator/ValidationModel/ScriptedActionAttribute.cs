@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValidationModel
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     internal class ScriptedActionAttribute : Attribute

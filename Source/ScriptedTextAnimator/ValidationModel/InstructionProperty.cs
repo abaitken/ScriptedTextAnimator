@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Reflection;
+using ScriptedTextAnimator.Instructions;
 using ScriptedTextAnimator.Presentation;
+using ScriptedTextAnimator.ValueStrategies;
 using TemperedSoftware.Shared.Presentation.PresentationModel;
 
-namespace ScriptedTextAnimator.Instructions
+namespace ScriptedTextAnimator.ValidationModel
 {
     public interface IValidationModel
     {
@@ -12,7 +14,7 @@ namespace ScriptedTextAnimator.Instructions
         void Validate();
     }
 
-    abstract class ValidationModel : ViewModelBase, IValidationModel
+    abstract class ValidationModelBase : ViewModelBase, IValidationModel
     {
 
         bool isValid;
@@ -48,7 +50,7 @@ namespace ScriptedTextAnimator.Instructions
     }
 
 
-    internal class InstructionProperty : ValidationModel, IInstructionProperty
+    internal class InstructionProperty : ValidationModelBase, IInstructionProperty
     {
         private readonly ScriptedInstructionViewModel parentViewModel;
         private readonly ScriptedPropertyAttribute propertyAttribute;
