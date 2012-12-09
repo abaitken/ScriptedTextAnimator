@@ -81,6 +81,7 @@
     <Compile Include="..\Include\ProductAssemblyInfo.cs">
       <Link>Properties\ProductAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="MRUManager.cs" />
     <Compile Include="ValueStrategies\InferredValueStrategy.cs" />
     <Compile Include="ValueStrategies\BlackDefaultValueStrategy.cs" />
     <Compile Include="Instructions\BlinkingTextInstruction.cs" />

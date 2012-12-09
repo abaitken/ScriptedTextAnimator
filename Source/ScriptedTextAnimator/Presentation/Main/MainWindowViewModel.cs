@@ -29,7 +29,6 @@ namespace ScriptedTextAnimator.Presentation.Main
 {
     internal class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
     {
-        private const string noneRecentFileToken = "(None)";
         private readonly Animator animator;
         private readonly VersionChecker versionChecker;
         private readonly MainWindow view;
@@ -48,6 +47,7 @@ namespace ScriptedTextAnimator.Presentation.Main
         private ScriptedInstructionViewModel selectedInstruction;
         private string statusText;
         private readonly ApplicationInformation applicationInformation;
+        private MRUManager mruManager;
 
         public MainWindowViewModel(MainWindow view)
         {
@@ -63,6 +63,7 @@ namespace ScriptedTextAnimator.Presentation.Main
 
             versionChecker = new VersionChecker(view, false);
             applicationInformation = new ApplicationInformation();
+            mruManager = new MRUManager();
         }
 
         public string ProjectPath
@@ -285,17 +286,7 @@ namespace ScriptedTextAnimator.Presentation.Main
 
         public IEnumerable<string> RecentFiles
         {
-            get
-            {
-                if (Settings.Default.RecentFiles == null)
-                    Settings.Default.RecentFiles = new StringCollection();
-
-                if (Settings.Default.RecentFiles.Count == 0)
-                    Settings.Default.RecentFiles.Add(noneRecentFileToken);
-
-                foreach (var recentFile in Settings.Default.RecentFiles)
-                    yield return recentFile;
-            }
+            get { return mruManager.RecentFiles; }
         }
 
         #endregion
@@ -450,16 +441,21 @@ Are you sure you wish to continue?",
 
         private void ManageRecentFiles(string fileName)
         {
-            Settings.Default.RecentFiles.Remove(noneRecentFileToken);
-            Settings.Default.RecentFiles.Remove(fileName);
-            Settings.Default.RecentFiles.Insert(0, fileName);
+            mruManager.Update(fileName);
             SendPropertyChanged("RecentFiles");
         }
 
         private void OnOpenRecentProject(string fileName)
         {
-            if (fileName.Equals(noneRecentFileToken))
+            if (fileName.Equals(mruManager.NoneRecentFileToken))
                 return;
+
+            if(!File.Exists(fileName))
+            {
+                MessageBox.Show("Project file does not exist.", "Open Project", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+                return;
+            }
 
             if (!AskToDiscardChanges("Open Project"))
                 return;
