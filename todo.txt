@@ -13,9 +13,7 @@ Medium
 - Remember Window Size and Location
 - Remeber grid splitter locations
 - Add installer upgrades
-- Escape or Enter closes update check window
 - Allow random character selections during animation
-- Add number count up/down instruction
 
 Low
 - Add build step to deploy to ftp site

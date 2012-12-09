@@ -81,7 +81,9 @@
     <Compile Include="..\Include\ProductAssemblyInfo.cs">
       <Link>Properties\ProductAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Instructions\CounterInstruction.cs" />
     <Compile Include="MRUManager.cs" />
+    <Compile Include="ValueStrategies\DoubleValueValueStrategy.cs" />
     <Compile Include="ValueStrategies\InferredValueStrategy.cs" />
     <Compile Include="ValueStrategies\BlackDefaultValueStrategy.cs" />
     <Compile Include="Instructions\BlinkingTextInstruction.cs" />
@@ -89,7 +91,7 @@
     <Compile Include="ValueStrategies\DarkGreenDefaultValueStrategy.cs" />
     <Compile Include="Instructions\DelayInstruction.cs" />
     <Compile Include="ValueStrategies\FontValueStrategy.cs" />
-    <Compile Include="ValueStrategies\IntegerStrategy.cs" />
+    <Compile Include="ValueStrategies\IntegerValueValueStrategy.cs" />
     <Compile Include="ValueStrategies\IValueStrategy.cs" />
     <Compile Include="ValueStrategies\LimeGreenDefaultValueStrategy.cs" />
     <Compile Include="Instructions\Measure.cs" />
@@ -102,7 +104,7 @@
     <Compile Include="Instructions\TextInstruction.cs" />
     <Compile Include="Helpers\TimeSpanExtensions.cs" />
     <Compile Include="Instructions\TypedTextInstruction.cs" />
-    <Compile Include="ValueStrategies\ComparableStrategy.cs" />
+    <Compile Include="ValueStrategies\ComparableValueStrategy.cs" />
     <Compile Include="ValueStrategies\TextValueStrategy.cs" />
     <Compile Include="ValueStrategies\ValueStrategyBase.cs" />
     <Compile Include="Instructions\WipeFrame.cs" />

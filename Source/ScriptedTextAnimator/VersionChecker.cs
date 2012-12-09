@@ -70,7 +70,9 @@ namespace ScriptedTextAnimator
 
         public void Check()
         {
+#if !DEBUG
             RunWorker();
+#endif
         }
     }
 }

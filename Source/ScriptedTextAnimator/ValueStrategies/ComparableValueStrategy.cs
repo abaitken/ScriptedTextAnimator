@@ -3,14 +3,14 @@ using System.Windows.Controls;
 
 namespace ScriptedTextAnimator.ValueStrategies
 {
-    internal abstract class ComparableStrategy<T> : ValueStrategyBase<T>
+    internal abstract class ComparableValueStrategy<T> : ValueStrategyBase<T>
         where T : IComparable<T>
     {
         private readonly T defaultValue;
         private readonly T maxValue;
         private readonly T minValue;
 
-        protected ComparableStrategy(T defaultValue, T minValue, T maxValue)
+        protected ComparableValueStrategy(T defaultValue, T minValue, T maxValue)
         {
             if (!defaultValue.GetType().IsValueType)
                 throw new InvalidOperationException("Values must be a value type");

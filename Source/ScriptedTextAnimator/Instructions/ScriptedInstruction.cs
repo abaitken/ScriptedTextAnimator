@@ -14,6 +14,7 @@ namespace ScriptedTextAnimator.Instructions
     [XmlInclude(typeof (NewLine))]
     [XmlInclude(typeof (ProjectInstructions))]
     [XmlInclude(typeof (WipeFrame))]
+    [XmlInclude(typeof (CounterInstruction))]
     public abstract class ScriptedInstruction
     {
         public abstract string DisplayText { get; }

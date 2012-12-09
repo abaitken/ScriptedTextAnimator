@@ -16,7 +16,7 @@
             <DataTemplate x:Key="ColorProperty">
                 <Controls1:ColorEditor Value="{Binding}" />
             </DataTemplate>
-            <DataTemplate x:Key="IntegerProperty">
+            <DataTemplate x:Key="NumberProperty">
                 <Controls1:NumberEditor Value="{Binding}" />
             </DataTemplate>
             <DataTemplate x:Key="BooleanProperty">
@@ -35,7 +35,8 @@
                                                         UnknownTemplate="{StaticResource UnknownProperty}"
                                                         StringTemplate="{StaticResource StringProperty}"
                                                         ColorTemplate="{StaticResource ColorProperty}"
-                                                        IntegerTemplate="{StaticResource IntegerProperty}"
+                                                        IntegerTemplate="{StaticResource NumberProperty}"
+                                                        DoubleTemplate="{StaticResource NumberProperty}"
                                                         BooleanTemplate="{StaticResource BooleanProperty}"
                                                         FlagsEnumerationTemplate="{StaticResource FlagsEnumerationProperty}"
                                                         EnumerationTemplate="{StaticResource EnumerationProperty}"

@@ -14,6 +14,7 @@ namespace ScriptedTextAnimator.Presentation
         public DataTemplate StringTemplate { get; set; }
         public DataTemplate ColorTemplate { get; set; }
         public DataTemplate IntegerTemplate { get; set; }
+        public DataTemplate DoubleTemplate { get; set; }
         public DataTemplate BooleanTemplate { get; set; }
         public DataTemplate EnumerationTemplate { get; set; }
         public DataTemplate FlagsEnumerationTemplate { get; set; }
@@ -35,6 +36,9 @@ namespace ScriptedTextAnimator.Presentation
 
             if (property.TargetType == typeof(int))
                 return IntegerTemplate;
+
+            if (property.TargetType == typeof(double))
+                return DoubleTemplate;
 
             if (property.TargetType == typeof(bool))
                 return BooleanTemplate;

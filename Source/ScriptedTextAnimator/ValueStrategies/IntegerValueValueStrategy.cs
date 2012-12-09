@@ -2,9 +2,9 @@
 
 namespace ScriptedTextAnimator.ValueStrategies
 {
-    internal class IntegerStrategy : ComparableStrategy<int>
+    internal class IntegerValueStrategy : ComparableValueStrategy<int>
     {
-        public IntegerStrategy(int defaultValue, int minValue, int maxValue) 
+        public IntegerValueStrategy(int defaultValue, int minValue, int maxValue)
             : base(defaultValue, minValue, maxValue)
         {
         }

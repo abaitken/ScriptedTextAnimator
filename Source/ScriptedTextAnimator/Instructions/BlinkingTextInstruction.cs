@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ScriptedTextAnimator.Rendering;
 using ScriptedTextAnimator.ValidationModel;
 
@@ -29,8 +28,8 @@ namespace ScriptedTextAnimator.Instructions
             var newFrameTemplate = new DrawingInstruction
             {
                 Cursor = false,
-                Delay = this.Delay,
-                Text = string.Concat(previousFrame.Text, this.Text)
+                Delay = Delay,
+                Text = string.Concat(previousFrame.Text, Text)
             };
 
             var results = new List<DrawingInstruction>();

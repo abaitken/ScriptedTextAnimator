@@ -43,7 +43,12 @@ namespace ScriptedTextAnimator.Presentation.Controls
                 if (Number == value)
                     return;
 
-                Value.Value = int.Parse(value);
+                var type = Value.Value.GetType();
+                if (type == typeof (int))
+                    Value.Value = int.Parse(value);
+                else if (type == typeof (double))
+                    Value.Value = double.Parse(value);
+
                 SendPropertyChanged("Number");
             }
         }

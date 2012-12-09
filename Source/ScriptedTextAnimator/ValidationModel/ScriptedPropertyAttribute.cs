@@ -23,7 +23,14 @@ namespace ScriptedTextAnimator.ValidationModel
         {
             this.displayName = displayName;
 
-            valueStrategy = new IntegerStrategy(defaultValue, minValue, maxValue);
+            valueStrategy = new IntegerValueStrategy(defaultValue, minValue, maxValue);
+        }
+
+        public ScriptedPropertyAttribute(string displayName, double defaultValue, double minValue, double maxValue)
+        {
+            this.displayName = displayName;
+
+            valueStrategy = new DoubleValueStrategy(defaultValue, minValue, maxValue);
         }
 
         public ScriptedPropertyAttribute(string displayName, object defaultValue)
