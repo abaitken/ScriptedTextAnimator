@@ -9,7 +9,6 @@ High
 Medium
 - Add instruction to remove/reverse previous text
 - Add alignment to text items
-- Cap number of recent files to 10
 - Improve error status text with error icon
 - Remember Window Size and Location
 - Remeber grid splitter locations

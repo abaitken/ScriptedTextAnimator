@@ -18,7 +18,7 @@
                         <Setter Property="Margin" Value="10" />
                     </Style>
                 </StackPanel.Resources>
-                <Button Content="Close" Command="{Binding CloseCommand}" />
+                <Button Content="Close" Command="{Binding CloseCommand}" IsDefault="True" IsCancel="True" />
             </StackPanel>
         </Grid>
 
