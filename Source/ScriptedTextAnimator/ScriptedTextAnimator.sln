@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptedTextAnimator", "ScriptedTextAnimator.csproj", "{37A35513-3E7E-4CDB-AC0B-2AFC21AABF1F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperedSoftware.Shared.Presentation", "..\..\Shared\TemperedSoftware.Shared.Presentation\TemperedSoftware.Shared.Presentation.csproj", "{A2339109-CC85-4A85-9F39-7D146AFCB5C8}"
