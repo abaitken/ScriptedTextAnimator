@@ -7,6 +7,7 @@ Scripted Text Animator Changelog
 - Fixed an issue where the Exception Message Window would not display correctly
 - Fixed an issue where crash could occur when text fields contained no text
 - Fixed an issue where the number of recent files was not capped
+- Added instruction for count downs/up
 
 v1.1.0.1202		29 September 2012
 - Added functionality to resize various interface regions
