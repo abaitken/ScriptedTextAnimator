@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
-using Microsoft.Practices.Composite.Presentation.Commands;
+using Prism.Commands;
 using ScriptedTextAnimator.Background;
 using ScriptedTextAnimator.Instructions;
 using ScriptedTextAnimator.Presentation.About;
@@ -307,18 +307,18 @@ namespace ScriptedTextAnimator.Presentation.Main
 
         private void CreateCommands()
         {
-            NewProjectCommand = new DelegateCommand(OnNewProject);
-            SaveProjectCommand = new DelegateCommand(OnSaveProject);
-            OpenProjectCommand = new DelegateCommand(OnOpenProject);
+            NewProjectCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnNewProject);
+            SaveProjectCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnSaveProject);
+            OpenProjectCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnOpenProject);
             AddActionCommand = new DelegateCommand<InstructionItem>(OnAddAction);
             InsertActionCommand = new DelegateCommand<InstructionItem>(OnInsertAction);
-            DeleteActionCommand = new DelegateCommand(OnDeleteAction);
-            RenderPreviewCommand = new DelegateCommand(OnRenderPreview, CanExecute);
-            RenderToDiskCommand = new DelegateCommand(OnRenderToDisk, CanExecute);
-            AboutCommand = new DelegateCommand(OnAbout);
-            ExitCommand = new DelegateCommand(OnExit);
+            DeleteActionCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnDeleteAction);
+            RenderPreviewCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnRenderPreview, CanExecute);
+            RenderToDiskCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnRenderToDisk, CanExecute);
+            AboutCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnAbout);
+            ExitCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnExit);
             OpenRecentProjectCommand = new DelegateCommand<string>(OnOpenRecentProject);
-            DocumentationCommand = new DelegateCommand(OnDocumentation);
+            DocumentationCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnDocumentation);
         }
 
         private static void OnDocumentation()
