@@ -1,2 +1,2 @@
 @echo off
-"C:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe" build.proj
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe" build.proj
