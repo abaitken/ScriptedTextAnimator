@@ -100,14 +100,6 @@
         <File Id="Microsoft.Practices.Unity.dll" Name="Microsoft.Practices.Unity.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\Microsoft.Practices.Unity.dll" />
       </Component>
 
-      <Component Id="TemperedSoftware.Shared.dll" Guid="*">
-        <File Id="TemperedSoftware.Shared.dll" Name="TemperedSoftware.Shared.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\TemperedSoftware.Shared.dll" />
-      </Component>
-
-      <Component Id="TemperedSoftware.Shared.Presentation.dll" Guid="*">
-        <File Id="TemperedSoftware.Shared.Presentation.dll" Name="TemperedSoftware.Shared.Presentation.dll" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\TemperedSoftware.Shared.Presentation.dll" />
-      </Component>
-
       <Component Id="ScriptedTextAnimator.chm" Guid="*">
         <File Id="ScriptedTextAnimator.chm" Name="ScriptedTextAnimator.chm" KeyPath="yes" DiskId="1" Source="$(var.FileSource)\ScriptedTextAnimator.chm" />
       </Component>

@@ -50,10 +50,6 @@
       <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
       <Name>WixNetFxExtension</Name>
     </WixExtension>
-    <WixExtension Include="TemperedSoftware.WixExtension">
-      <HintPath>..\..\Shared\WixExtension\bin\Release\TemperedSoftware.WixExtension.dll</HintPath>
-      <Name>TemperedSoftware.WixExtension</Name>
-    </WixExtension>
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--
