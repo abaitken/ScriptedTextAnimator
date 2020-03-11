@@ -14,7 +14,7 @@
             <DataTemplate>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{Binding DisplayText}" Margin="4" />
-                    <Grid Visibility="{Binding IsValid, Converter={StaticResource BooleanVisibilityConverter}, ConverterParameter=False}">
+                    <Grid Visibility="{Binding IsValid, Converter={StaticResource BooleanVisibilityConverter}}">
                         <Image Source="{StaticResource ValidationError}" Width="16" Height="16" ToolTip="{Binding ValidationMessage}" />
                     </Grid>
                 </StackPanel>

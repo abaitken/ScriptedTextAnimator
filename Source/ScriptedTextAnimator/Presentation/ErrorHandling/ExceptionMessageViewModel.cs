@@ -1,5 +1,5 @@
-﻿using System.Windows.Input;
-using TemperedSoftware.Shared.Presentation.Commands;
+﻿using Prism.Commands;
+using System.Windows.Input;
 
 namespace ScriptedTextAnimator.Presentation.ErrorHandling
 {

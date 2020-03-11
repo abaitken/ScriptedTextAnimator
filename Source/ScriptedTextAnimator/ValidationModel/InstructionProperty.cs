@@ -3,7 +3,6 @@ using System.Reflection;
 using ScriptedTextAnimator.Instructions;
 using ScriptedTextAnimator.Presentation;
 using ScriptedTextAnimator.ValueStrategies;
-using TemperedSoftware.Shared.Presentation.PresentationModel;
 
 namespace ScriptedTextAnimator.ValidationModel
 {

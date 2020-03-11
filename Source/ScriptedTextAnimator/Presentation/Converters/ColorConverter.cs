@@ -1,18 +1,33 @@
-﻿using System.Windows.Media;
-using TemperedSoftware.Shared.Presentation.Converters;
+﻿using System;
+using System.Globalization;
+using System.Windows.Data;
 
 namespace ScriptedTextAnimator.Presentation.Converters
 {
-    class ColorConverter : ConverterBase<System.Drawing.Color, Color>
+    class ColorConverter : IValueConverter
     {
-        protected override Color ConvertImpl(System.Drawing.Color value)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return Color.FromArgb(value.A, value.R, value.G, value.B);
+            if (typeof(System.Drawing.Color) != value.GetType())
+                throw new InvalidOperationException("Value does not match from type");
+
+            if (typeof(System.Windows.Media.Color) != targetType)
+                throw new InvalidOperationException("Target type does not match to type");
+
+            var from = (System.Drawing.Color)value;
+            return System.Windows.Media.Color.FromArgb(from.A, from.R, from.G, from.B);
         }
 
-        protected override System.Drawing.Color ConvertBackImpl(Color value)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return System.Drawing.Color.FromArgb(value.A, value.R, value.G, value.B);
+            if (typeof(System.Windows.Media.Color) != value.GetType())
+                throw new InvalidOperationException("Value does not match to type");
+
+            if (typeof(System.Drawing.Color) != targetType)
+                throw new InvalidOperationException("Target type does not match from type");
+
+            var from = (System.Windows.Media.Color)value;
+            return System.Drawing.Color.FromArgb(from.A, from.R, from.G, from.B);
         }
     }
 }

@@ -88,8 +88,11 @@
     <Compile Include="..\Include\ProductAssemblyInfo.cs">
       <Link>Properties\ProductAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Helpers\XmlSerializationHelper.cs" />
+    <Compile Include="Helpers\FileDialogFilterBuilder.cs" />
     <Compile Include="Instructions\CounterInstruction.cs" />
     <Compile Include="MRUManager.cs" />
+    <Compile Include="Presentation\ViewModelBase.cs" />
     <Compile Include="ValueStrategies\DoubleValueValueStrategy.cs" />
     <Compile Include="ValueStrategies\InferredValueStrategy.cs" />
     <Compile Include="ValueStrategies\BlackDefaultValueStrategy.cs" />
@@ -300,16 +303,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\TemperedSoftware.Shared.Presentation\TemperedSoftware.Shared.Presentation.csproj">
-      <Project>{A2339109-CC85-4A85-9F39-7D146AFCB5C8}</Project>
-      <Name>TemperedSoftware.Shared.Presentation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Shared\TemperedSoftware.Shared\TemperedSoftware.Shared.csproj">
-      <Project>{70E4E700-F522-49DC-9DB7-9A8D576360A1}</Project>
-      <Name>TemperedSoftware.Shared</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="app.ico">

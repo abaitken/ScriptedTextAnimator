@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ScriptedTextAnimator.Instructions;
-using TemperedSoftware.Shared.Serialization;
 
 namespace ScriptedTextAnimator.Project
 {

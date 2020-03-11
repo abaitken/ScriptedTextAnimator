@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
 using ScriptedTextAnimator.Background;
-using TemperedSoftware.Shared.Presentation.Commands;
-using TemperedSoftware.Shared.Presentation.PresentationModel;
 using System.Diagnostics;
+using Prism.Commands;
 
 namespace ScriptedTextAnimator.Presentation.About
 {

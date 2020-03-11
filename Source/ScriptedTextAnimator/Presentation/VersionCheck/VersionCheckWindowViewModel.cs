@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Prism.Commands;
+using System;
 using System.Diagnostics;
 using System.Windows.Input;
-using TemperedSoftware.Shared.Presentation.Commands;
 using System.Windows.Media;
 
 namespace ScriptedTextAnimator.Presentation.VersionCheck

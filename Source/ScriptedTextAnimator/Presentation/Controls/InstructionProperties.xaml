@@ -67,7 +67,7 @@
                     <GridViewColumn Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Grid Visibility="{Binding IsValid, Converter={StaticResource BooleanVisibilityConverter}, ConverterParameter=False}">
+                                <Grid Visibility="{Binding IsValid, Converter={StaticResource BooleanVisibilityConverter}}">
                                     <Image Source="{StaticResource ValidationError}" Width="16" Height="16" ToolTip="{Binding ValidationMessage}" />
                                 </Grid>
                             </DataTemplate>

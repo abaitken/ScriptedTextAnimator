@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-                    xmlns:Converters="clr-namespace:TemperedSoftware.Shared.Presentation.Converters;assembly=TemperedSoftware.Shared.Presentation">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
 
-    <Converters:BooleanVisibilityConverter x:Key="BooleanVisibilityConverter"  />
+    <BooleanToVisibilityConverter x:Key="BooleanVisibilityConverter"  />
     <BitmapImage x:Key="ValidationError" UriSource="Images/ValidationError.png" />
 
 </ResourceDictionary>

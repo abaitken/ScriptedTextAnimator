@@ -16,12 +16,8 @@ using ScriptedTextAnimator.Instructions;
 using ScriptedTextAnimator.Presentation.About;
 using ScriptedTextAnimator.Presentation.ErrorHandling;
 using ScriptedTextAnimator.Project;
-using ScriptedTextAnimator.Properties;
 using ScriptedTextAnimator.Rendering;
 using ScriptedTextAnimator.ValidationModel;
-using TemperedSoftware.Shared.FileSystem;
-using TemperedSoftware.Shared.Presentation.Commands;
-using TemperedSoftware.Shared.Presentation.PresentationModel;
 using Application = System.Windows.Application;
 using MessageBox = System.Windows.Forms.MessageBox;
 
@@ -307,23 +303,23 @@ namespace ScriptedTextAnimator.Presentation.Main
 
         private void CreateCommands()
         {
-            NewProjectCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnNewProject);
-            SaveProjectCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnSaveProject);
-            OpenProjectCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnOpenProject);
+            NewProjectCommand = new DelegateCommand(OnNewProject);
+            SaveProjectCommand = new DelegateCommand(OnSaveProject);
+            OpenProjectCommand = new DelegateCommand(OnOpenProject);
             AddActionCommand = new DelegateCommand<InstructionItem>(OnAddAction);
             InsertActionCommand = new DelegateCommand<InstructionItem>(OnInsertAction);
-            DeleteActionCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnDeleteAction);
-            RenderPreviewCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnRenderPreview, CanExecute);
-            RenderToDiskCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnRenderToDisk, CanExecute);
-            AboutCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnAbout);
-            ExitCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnExit);
+            DeleteActionCommand = new DelegateCommand(OnDeleteAction);
+            RenderPreviewCommand = new DelegateCommand(OnRenderPreview, CanExecute);
+            RenderToDiskCommand = new DelegateCommand(OnRenderToDisk, CanExecute);
+            AboutCommand = new DelegateCommand(OnAbout);
+            ExitCommand = new DelegateCommand(OnExit);
             OpenRecentProjectCommand = new DelegateCommand<string>(OnOpenRecentProject);
-            DocumentationCommand = new TemperedSoftware.Shared.Presentation.Commands.DelegateCommand(OnDocumentation);
+            DocumentationCommand = new DelegateCommand(OnDocumentation);
         }
 
-        private static void OnDocumentation()
+        private void OnDocumentation()
         {
-            var programFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var programFolder = applicationInformation.ProgramFolder;
             var helpFile = Path.Combine(programFolder, "ScriptedTextAnimator.chm");
             Process.Start(helpFile);
         }
